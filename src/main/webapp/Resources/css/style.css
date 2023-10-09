@@ -1,0 +1,392 @@
+@import url('https://fonts.googleapis.com/css2?family=Public+Sans:wght@300;400;700&display=swap');
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Public Sans', sans-serif;
+
+}
+
+li {
+    list-style: none;
+}
+
+.header {
+    background-color: #21DA70;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 30px;
+}
+
+.logo {
+    font-size: 25px;
+    text-decoration: none;
+    color: antiquewhite;
+}
+
+.nav__links ul {
+    display: flex;
+}
+
+.nav__links li a {
+    font-size: 25px;
+    text-align: center;
+    text-decoration: none;
+    color: antiquewhite;
+    transition: all 0.2s ease-in-out 0s;
+}
+
+.nav__links li a:hover {
+    color: hsl(233, 26%, 24%);
+}
+
+.nav__links li {
+    list-style: none;
+    padding: 1rem;
+}
+
+.menu {
+    display: none;
+}
+
+.hero__content {
+    height: auto;
+    padding-top: 3%;
+    display: flex;
+}
+
+.image__content img {
+    max-width: 45rem;
+
+}
+
+.image__content {
+    background: url(../images/bg-intro-desktop.svg);
+    background-repeat: no-repeat;
+    background-position: right;
+    background-size: cover;
+
+}
+
+.text_content {
+    display: flex;
+    flex-direction: column;
+}
+
+.body_div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 80vh;
+}
+
+.text_content h1 {
+    font-weight: 400;
+    font-size: 3rem;
+    color: hsl(233, 26%, 24%);
+    padding: 3% 15%;
+    padding-bottom: 5%;
+}
+
+.text_content p {
+    color: hsl(233, 8%, 62%);
+    font-weight: 400;
+    padding-bottom: 5%;
+    padding-right: 5%;
+    padding-left: 15%;
+    font-size: 1.3rem;
+    word-spacing: 10px;
+}
+
+.b1 {
+    padding-left: 15%;
+    padding-top: 2%;
+}
+
+.cta-2 {
+    width: 10rem;
+    height: 3rem;
+    font-family: 'Public Sans', sans-serif;
+    border-radius: 2rem;
+    border-style: none;
+    background-image: linear-gradient(to right, hsl(136, 65%, 51%), hsl(192, 70%, 51%));
+    color: white;
+    font-weight: 700;
+    cursor: pointer;
+    box-shadow: 2px 2px 5px rgba(150, 150, 150, 0.5);
+}
+
+.cta-2:hover {
+    background: hsl(192, 70%, 51%, 0.8);
+}
+
+.footer {
+    background-color: hsl(233, 26%, 24%);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 3% 3%;
+}
+
+.logo-social {
+    padding: 2rem;
+}
+
+.logo-social img {
+    cursor: pointer;
+}
+
+.socials {
+    padding-top: 2rem;
+    width: auto;
+}
+
+.socials img {
+    padding: 0.5rem;
+    cursor: pointer;
+}
+
+.footer_links {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.footer_links li a {
+    text-decoration: none;
+    color: white;
+}
+
+.footer_links li {
+    list-style: none;
+    padding: 1rem 2rem;
+}
+
+.footer_links li a:hover {
+    color: hsl(136, 65%, 51%);
+}
+
+.end_links p {
+    padding-top: 2rem;
+    text-align: center;
+    font-size: 0.7rem;
+    color: rgb(236, 236, 236);
+    font-weight: 300;
+}
+
+input[type=text],
+input[type=tel],
+input[type=email],
+input[type=date],
+select {
+    width: 100%;
+    padding: 12px 20px;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+.back{
+    width: 100%;
+    background-color: #e84545;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+.back:hover {
+    background-color: #bb3737;
+}
+
+input[type=submit] {
+    width: 100%;
+    background-color: #4CAF50;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+input[type=submit]:hover {
+    background-color: #45a049;
+}
+
+.form {
+    width: 100%;
+    height: 60%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+table, th, td {
+    border: 1px solid #ccc;
+}
+
+th, td {
+    padding: 10px;
+    text-align: left;
+}
+
+.add-button {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 10px 0;
+    cursor: pointer;
+}
+
+.update-button, .delete-button {
+    background-color: #008CBA;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 14px;
+    margin: 2px;
+    cursor: pointer;
+}
+
+.table_title {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: row;
+}
+
+.overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background overlay */
+    z-index: 1;
+}
+
+.popup {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.2);
+    padding: 20px;
+    z-index: 2; /* Above the overlay */
+    width: 300px; /* Adjust the width as needed */
+}
+
+.popup h2 {
+    margin-top: 0;
+    font-size: 1.5rem;
+    color: #333;
+}
+
+.popup label,
+.popup input,
+.popup button {
+    display: block;
+    width: 100%;
+}
+
+.popup label {
+    font-weight: bold;
+    color: #555;
+}
+
+.popup input {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+/* Submit button styles */
+.popup button[type="submit"] {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.popup button[type="submit"]:hover {
+    background-color: #0056b3;
+}
+
+button#closeFormButton {
+    background-color: #ccc;
+    color: #333;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    margin-right: 10px;
+}
+
+button#closeFormButton:hover {
+    background-color: #999;
+}
+
+.current {
+    background-color: hsl(233, 26%, 24%);
+    border-radius: 5px;
+}
+/* Basic styling for the form */
+.search-form {
+    text-align: center;
+    margin-top: 20px;
+}
+
+/* Style for the input box */
+.search-input {
+    padding: 10px;
+    width: 300px;
+    border: 2px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+    outline: none;
+}
+
+.search-button {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.search-button:hover {
+    background-color: #0056b3;
+}
