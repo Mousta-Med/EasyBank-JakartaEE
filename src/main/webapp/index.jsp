@@ -16,8 +16,8 @@
     </div>
     <div class="nav__links">
         <ul>
-            <li><a href="<%= request.getContextPath() %>/ClientServlet?action=list">Client</a></li>
-            <li><a href="<%= request.getContextPath() %>/EmployeServlet?action=list">Employe</a></li>
+            <li><a href="<%= request.getContextPath() %>/client?action=list">Client</a></li>
+            <li><a href="<%= request.getContextPath() %>/employe?action=list">Employe</a></li>
         </ul>
     </div>
     <div class="menu">

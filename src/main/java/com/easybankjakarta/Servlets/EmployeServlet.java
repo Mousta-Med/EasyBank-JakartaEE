@@ -2,10 +2,9 @@ package com.easybankjakarta.Servlets;
 
 import com.easybankjakarta.Dao.EmployeDao;
 import com.easybankjakarta.Dao.impl.EmployeDaoImpl;
-import com.easybankjakarta.Models.Client;
 import com.easybankjakarta.Models.Employe;
+import com.easybankjakarta.Services.EmployeService;
 import jakarta.servlet.RequestDispatcher;
-import jakarta.servlet.ServletConfig;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.*;
@@ -15,14 +14,11 @@ import java.time.LocalDate;
 import java.util.List;
 import java.util.Optional;
 
-@WebServlet(name = "EmployeServlet", value = "/EmployeServlet")
+@WebServlet(name = "EmployeServlet", value = "/employe")
 public class EmployeServlet extends HttpServlet {
-    EmployeDao employeDao;
+    EmployeDao employeDao = new EmployeDaoImpl();
+    EmployeService employeService = new EmployeService(employeDao);
 
-    public void init(ServletConfig servletconfig)
-            throws ServletException {
-        employeDao = new EmployeDaoImpl();
-    }
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -56,7 +52,7 @@ public class EmployeServlet extends HttpServlet {
         String matricule = request.getParameter("matricule");
         Employe existingEmploye;
         try {
-            Optional<Employe> employe = employeDao.getEmploye(matricule);
+            Optional<Employe> employe = employeService.getEmploye(matricule);
             if (employe.isPresent()) {
                 existingEmploye = employe.get();
                 RequestDispatcher dispatcher = request.getRequestDispatcher("Views/updateEmploye.jsp");
@@ -82,7 +78,7 @@ public class EmployeServlet extends HttpServlet {
         LocalDate recruitmentDate = LocalDate.parse(request.getParameter("recruitmentDate"));
         String email = request.getParameter("email");
         Employe employe = new Employe(firstName, lastName, birthDate, mobile, matricule, recruitmentDate, email);
-        Optional<Employe> optionalEmploye = employeDao.addEmploye(employe);
+        Optional<Employe> optionalEmploye = employeService.addEmploye(employe);
         String message = null;
         if (optionalEmploye.isPresent()) {
             message = "Employe Inserted Successfuly";
@@ -95,7 +91,7 @@ public class EmployeServlet extends HttpServlet {
 
     private void getEmployes(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         try {
-            List<Employe> employes = employeDao.getEmployes();
+            List<Employe> employes = employeService.getEmployees();
             request.setAttribute("employes", employes);
             RequestDispatcher dispatcher = request.getRequestDispatcher("Views/employe.jsp");
             dispatcher.forward(request, response);
@@ -106,7 +102,7 @@ public class EmployeServlet extends HttpServlet {
 
     private void getEmploye(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String matricule = request.getParameter("matricule");
-        Optional<Employe> optionalEmploye = employeDao.getEmploye(matricule);
+        Optional<Employe> optionalEmploye = employeService.getEmploye(matricule);
         if (optionalEmploye.isPresent()) {
             Employe employe = optionalEmploye.get();
             request.setAttribute("employe", employe);
@@ -115,14 +111,15 @@ public class EmployeServlet extends HttpServlet {
         } else {
             String message = "There is no Employe with this matricule";
             request.setAttribute("message", message);
-            getEmployes(request, response);
+            RequestDispatcher dispatcher = request.getRequestDispatcher("Views/employe.jsp");
+            dispatcher.forward(request, response);
         }
 
     }
 
     private void deleteEmploye(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String matricule = request.getParameter("matricule");
-        Integer res = employeDao.deleteEmploye(matricule);
+        Integer res = employeService.deleteEmploye(matricule);
         String message = null;
         if (res != 0){
             message = "Employe Deleted Successfuly";
@@ -142,7 +139,7 @@ public class EmployeServlet extends HttpServlet {
         LocalDate recruitmentDate = LocalDate.parse(request.getParameter("recruitmentDate"));
         String email = request.getParameter("email");
         Employe employe = new Employe(firstName, lastName, birthDate, mobile, matricule, recruitmentDate, email);
-        Optional<Employe> optionalEmploye = employeDao.updateEmploye(employe);
+        Optional<Employe> optionalEmploye = employeService.updateEmploye(employe);
         String message = null;
         if (optionalEmploye.isPresent()) {
             message = "Employe Updated Successfuly";

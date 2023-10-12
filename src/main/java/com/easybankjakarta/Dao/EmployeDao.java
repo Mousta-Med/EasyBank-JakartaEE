@@ -11,5 +11,5 @@ public interface EmployeDao {
     Optional<Employe> getEmploye(String matricule);
     Optional<Employe> getEmployeByAttribut(String string);
     Optional<Employe> updateEmploye(Employe e);
-    List<Employe> getEmployes();
+    List<Employe> getEmployees();
 }

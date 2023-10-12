@@ -157,7 +157,7 @@ public class EmployeDaoImpl implements EmployeDao {
     }
 
     @Override
-    public List<Employe> getEmployes() {
+    public List<Employe> getEmployees() {
         String query = "SELECT * FROM personne INNER JOIN employe ON personne.id = employe.personneId";
         List<Employe> employes = new ArrayList<>();
         try {
